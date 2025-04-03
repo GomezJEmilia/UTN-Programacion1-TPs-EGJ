@@ -126,3 +126,79 @@ def ejercicio8 ():
 
 # Prueba ejercicio 8
 #ejercicio8()
+
+# Ejercicio 9: Escribir un programa que pida al usuario la magnitud de un terremoto, clasifique la magnitud en una de las siguientes categorías según la escala de Richter e imprima el resultado por pantalla
+def ejercicio9 ():
+    # Se solicita la magnitud del terremoto al usuario
+    magnitud = float (input ("Ingrese la magnitud del terremoto, por favor: "))
+    
+    # Se verifica en qué categoría clasifica
+    print ("La magnitud del terremoto clasifica como:")
+    if magnitud < 3:
+        print ("Muy leve: imperceptible")
+    elif magnitud >= 3 and magnitud < 4:
+        print ("Leve: ligeramente perceptible")
+    elif magnitud >= 4 and magnitud < 5:
+        print ("Moderado: sentido por personas pero generalmente no causa daños")
+    elif magnitud >= 5 and magnitud < 6: 
+        print ("Fuerte: puede causar daños en estructuras débiles")
+    elif magnitud >= 6 and magnitud < 7:
+        print ("Muy fuerte: puede causar daños significativos")
+    elif magnitud >= 7:
+        print ("Extremo: puede causar graves daños a gran escala")
+
+# Prueba ejercicio 9
+#ejercicio9()
+
+# Ejercicio 10: Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla si el usuario se encuentra en otoño, invierno, primavera o verano.
+def ejercicio10 ():
+    # Se solicita al usuario hemisferio en que se encuentra
+    hemisferio = input ("Indique en qué hemisferio se encuentra por favor (escriba solo norte o sur) \n")
+    
+    # Se verifica que el string ingresado sea correcto
+    hemisferio_valido = False
+    while hemisferio_valido == False:
+        if hemisferio.lower() == "sur" or hemisferio.lower() == "norte":
+            hemisferio_valido = True
+        else: hemisferio = input ("Por favor, ingrese solo una de las dos opciones: norte o sur")
+    
+    # Se solicita al usuario mes y día
+    anio = int (input ("¿Qué año es? \n"))
+    mes = int(input ("¿En qué mes estás? (ingresar número entre el 1 y el 12)\n"))
+    dia = int(input ("¿Qué día es? (Ingresar número) \n"))
+    
+    # Se verifica que la fecha ingresada es válida
+    print()
+    
+    dia_valido = False
+    if (mes == 1 or mes == 3 or mes == 5 or mes == 7 or mes == 8 or mes == 10 or mes == 12) and (dia > 0 and dia < 32):
+        dia_valido = True
+    elif (mes == 4 or mes == 6 or mes == 9 or mes == 11) and (dia > 0 and dia < 31):
+        dia_valido = True
+    elif (mes == 2) and ((anio % 4 == 0 and anio % 100 != 0 or anio % 400 == 0)) and (dia > 0 and dia < 9):
+        dia_valido = True
+    
+    # Si la fecha es válida, se verifica en qué estación se encuentra el usuario
+    if dia_valido:
+        if hemisferio.lower() == "norte":
+            if (mes == 12 and dia >= 21) or mes == 1 or mes == 2 or (mes == 3 and dia < 21):
+                print ("Te encontrás en invierno")
+            elif (mes == 3 and dia >= 21) or mes == 4 or mes == 5 or (mes == 6 and dia < 21):
+                print ("Te encontrás en primavera")
+            elif (mes == 6 and dia >= 21) or mes == 7 or mes == 8 or (mes == 9 and dia < 21):
+                print ("Te encontrás en verano")
+            elif (mes == 9 and dia >= 21) or mes == 10 or mes == 11 or (mes == 12 and dia < 21):
+                print ("Te encontrás en otoño")
+        elif hemisferio.lower() == "sur":
+            if (mes == 12 and dia >= 21) or mes == 1 or mes == 2 or (mes == 3 and dia < 21):
+                print ("Te encontrás en verano")
+            elif (mes == 3 and dia >= 21) or mes == 4 or mes == 5 or (mes == 6 and dia < 21):
+                print ("Te encontrás en otoño")
+            elif (mes == 6 and dia >= 21) or mes == 7 or mes == 8 or (mes == 9 and dia < 21):
+                print ("Te encontrás en invierno")
+            elif (mes == 9 and dia >= 21) or mes == 10 or mes == 11 or (mes == 12 and dia < 21):
+                print ("Te encontrás en primavera")
+    else: print ("La fecha ingresada no es válida")
+
+# Prueba ejercicio 10
+#ejercicio10()
