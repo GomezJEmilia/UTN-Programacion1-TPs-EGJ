@@ -1,4 +1,4 @@
-# Trabajo práctico N°4 - Programación I 
+# Trabajo práctico N°7 - Programación I 
 # RECURSIVIDAD
 # Estudiante: Emilia Gómez Juárez
 
